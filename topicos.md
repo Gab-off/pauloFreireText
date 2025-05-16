@@ -1,4 +1,6 @@
-# Google Dorking: O Básico em 7 Minutos
+### parte do Vinícius
+# Google Dorking: O Básico
+
 
 ## O que é Google Dorking?
 - Técnica de pesquisa avançada no Google para encontrar informações não visíveis em buscas comuns
@@ -10,6 +12,8 @@
 - Usada tanto por profissionais de segurança quanto por cibercriminosos
 - No Brasil: forte impacto devido ao alto número de usuários online e casos de vazamentos
 
+***
+### parte do Miranda
 ## Principais Comandos (O que realmente importa)
 
 ### site:
@@ -33,7 +37,12 @@
 - Câmeras: `intitle:webcamXP 5` (encontra câmeras sem proteção)
 - Arquivos sensíveis: `filetype:log username password site:gov.br`
 
+***
+
+### parte do Gilberto
 ## Usos do Google Dorking
+
+
 
 ### Legítimos:
 - Identificar vulnerabilidades em seus próprios sistemas
@@ -50,6 +59,8 @@
 - Ataques ao Ministério da Saúde
 - Vazamentos em grandes empresas (Netshoes, Enel)
 
+***
+### parte do Mendes
 ## Como se Proteger (Essencial)
 
 ### Para Usuários:
