@@ -13,20 +13,20 @@
             --dark: #333;
             --light: #f9f9f9;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Arial', sans-serif;
         }
-        
+
         body {
             background-color: var(--light);
             color: var(--dark);
             line-height: 1.6;
         }
-        
+
         header {
             background-color: var(--primary);
             color: white;
@@ -34,18 +34,18 @@
             padding: 2rem 1rem;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        
+
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 2rem 1rem;
         }
-        
+
         .intro {
             margin-bottom: 2rem;
             text-align: center;
         }
-        
+
         .warning {
             background-color: #fff3cd;
             border-left: 4px solid var(--yellow);
@@ -53,14 +53,14 @@
             margin-bottom: 2rem;
             border-radius: 4px;
         }
-        
+
         .commands-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1.5rem;
             margin-bottom: 2rem;
         }
-        
+
         .command-card {
             background-color: white;
             border-radius: 8px;
@@ -68,18 +68,18 @@
             padding: 1.5rem;
             transition: transform 0.3s ease;
         }
-        
+
         .command-card:hover {
             transform: translateY(-5px);
         }
-        
+
         .command-card h3 {
             color: var(--primary);
             margin-bottom: 0.5rem;
             display: flex;
             align-items: center;
         }
-        
+
         .command-tag {
             background-color: #e8f0fe;
             color: var(--primary);
@@ -89,14 +89,14 @@
             margin-right: 0.5rem;
             font-size: 0.9rem;
         }
-        
+
         .command-examples {
             margin-top: 1rem;
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
         }
-        
+
         .dork-code {
             position: relative;
             background-color: #f5f5f5;
@@ -107,11 +107,15 @@
             cursor: pointer;
             transition: background-color 0.2s ease;
         }
-        
+
         .dork-code:hover {
             background-color: #e8f0fe;
         }
-        
+
+        .dork-command-text {
+            display: block;
+        }
+
         .copy-btn {
             position: absolute;
             top: 0.5rem;
@@ -124,24 +128,24 @@
             cursor: pointer;
             transition: all 0.2s ease;
         }
-        
+
         .copy-btn:hover {
             background-color: var(--primary);
             color: white;
             border-color: var(--primary);
         }
-        
+
         .section-title {
             margin: 2.5rem 0 1.5rem;
             padding-bottom: 0.5rem;
             border-bottom: 2px solid var(--primary);
         }
-        
+
         .combination-title {
             margin-top: 2rem;
             color: var(--red);
         }
-        
+
         footer {
             text-align: center;
             padding: 2rem;
@@ -149,7 +153,7 @@
             color: white;
             margin-top: 3rem;
         }
-        
+
         .tooltip {
             position: absolute;
             background-color: #333;
@@ -163,11 +167,11 @@
             top: -30px;
             right: 0;
         }
-        
+
         .copy-success .tooltip {
             opacity: 1;
         }
-        
+
         @media (max-width: 768px) {
             .commands-grid {
                 grid-template-columns: 1fr;
@@ -176,270 +180,273 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>Google Dorking</h1>
-        <p>Comandos práticos para explorar o lado oculto do Google</p>
-    </header>
+<header>
+    <h1>Google Dorking</h1>
+    <p>Comandos práticos para explorar o lado oculto do Google</p>
+</header>
 
-    <div class="container">
-        <div class="intro">
-            <h2>Explore os comandos apresentados</h2>
-            <p>Clique em qualquer comando para copiar e teste diretamente no Google</p>
-        </div>
+<div class="container">
+    <div class="intro">
+        <h2>Explore os comandos apresentados</h2>
+        <p>Clique em qualquer comando para copiar e teste diretamente no Google</p>
+    </div>
 
-        <div class="warning">
-            <strong>⚠️ Aviso importante:</strong> Estes comandos são compartilhados apenas para fins educacionais e de segurança. Utilize essas técnicas de forma ética e responsável, evitando acessar informações privadas sem autorização.
-        </div>
+    <div class="warning">
+        <strong>⚠️ Aviso importante:</strong> Estes comandos são compartilhados apenas para fins educacionais e de segurança. Utilize essas técnicas de forma ética e responsável, evitando acessar informações privadas sem autorização.
+    </div>
 
-        <h2 class="section-title">Comandos Básicos</h2>
+    <h2 class="section-title">Comandos Básicos</h2>
 
-        <div class="commands-grid">
-            <div class="command-card">
-                <h3><span class="command-tag">site:</span> Busca em domínio específico</h3>
-                <p>Limita os resultados a um site ou domínio específico.</p>
-                <div class="command-examples">
-                    <div class="dork-code" onclick="copyToClipboard(this)">
-                        site:gov.br confidencial
-                        <button class="copy-btn">Copiar</button>
-                        <span class="tooltip">Copiado!</span>
-                    </div>
-                    <div class="dork-code" onclick="copyToClipboard(this)">
-                        site:edu.br "dados pessoais"
-                        <button class="copy-btn">Copiar</button>
-                        <span class="tooltip">Copiado!</span>
-                    </div>
+    <div class="commands-grid">
+        <div class="command-card">
+            <h3><span class="command-tag">site:</span> Busca em domínio específico</h3>
+            <p>Limita os resultados a um site ou domínio específico.</p>
+            <div class="command-examples">
+                <div class="dork-code" onclick="copyToClipboard(this)">
+                    <span class="dork-command-text">site:gov.br confidencial</span>
+                    <button class="copy-btn">Copiar</button>
+                    <span class="tooltip">Copiado!</span>
                 </div>
-            </div>
-
-            <div class="command-card">
-                <h3><span class="command-tag">intitle:</span> Busca no título</h3>
-                <p>Encontra páginas com termos específicos no título.</p>
-                <div class="command-examples">
-                    <div class="dork-code" onclick="copyToClipboard(this)">
-                        intitle:"painel de administração"
-                        <button class="copy-btn">Copiar</button>
-                        <span class="tooltip">Copiado!</span>
-                    </div>
-                    <div class="dork-code" onclick="copyToClipboard(this)">
-                        intitle:"index of" admin
-                        <button class="copy-btn">Copiar</button>
-                        <span class="tooltip">Copiado!</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="command-card">
-                <h3><span class="command-tag">inurl:</span> Busca na URL</h3>
-                <p>Encontra páginas com termos específicos na URL.</p>
-                <div class="command-examples">
-                    <div class="dork-code" onclick="copyToClipboard(this)">
-                        inurl:admin
-                        <button class="copy-btn">Copiar</button>
-                        <span class="tooltip">Copiado!</span>
-                    </div>
-                    <div class="dork-code" onclick="copyToClipboard(this)">
-                        inurl:login inurl:admin
-                        <button class="copy-btn">Copiar</button>
-                        <span class="tooltip">Copiado!</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="command-card">
-                <h3><span class="command-tag">filetype:</span> Busca por tipo de arquivo</h3>
-                <p>Limita resultados a um tipo específico de arquivo.</p>
-                <div class="command-examples">
-                    <div class="dork-code" onclick="copyToClipboard(this)">
-                        filetype:pdf confidencial
-                        <button class="copy-btn">Copiar</button>
-                        <span class="tooltip">Copiado!</span>
-                    </div>
-                    <div class="dork-code" onclick="copyToClipboard(this)">
-                        filetype:xls senha
-                        <button class="copy-btn">Copiar</button>
-                        <span class="tooltip">Copiado!</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="command-card">
-                <h3><span class="command-tag">intext:</span> Busca no conteúdo</h3>
-                <p>Encontra páginas com termos específicos no corpo do texto.</p>
-                <div class="command-examples">
-                    <div class="dork-code" onclick="copyToClipboard(this)">
-                        intext:"dados pessoais" formulário
-                        <button class="copy-btn">Copiar</button>
-                        <span class="tooltip">Copiado!</span>
-                    </div>
-                    <div class="dork-code" onclick="copyToClipboard(this)">
-                        intext:"username" "password"
-                        <button class="copy-btn">Copiar</button>
-                        <span class="tooltip">Copiado!</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="command-card">
-                <h3><span class="command-tag">" "</span> Busca por frase exata</h3>
-                <p>Encontra resultados que contenham a frase exata entre aspas.</p>
-                <div class="command-examples">
-                    <div class="dork-code" onclick="copyToClipboard(this)">
-                        "login: admin password:"
-                        <button class="copy-btn">Copiar</button>
-                        <span class="tooltip">Copiado!</span>
-                    </div>
-                    <div class="dork-code" onclick="copyToClipboard(this)">
-                        "informações confidenciais não compartilhar"
-                        <button class="copy-btn">Copiar</button>
-                        <span class="tooltip">Copiado!</span>
-                    </div>
+                <div class="dork-code" onclick="copyToClipboard(this)">
+                    <span class="dork-command-text">site:edu.br "dados pessoais"</span>
+                    <button class="copy-btn">Copiar</button>
+                    <span class="tooltip">Copiado!</span>
                 </div>
             </div>
         </div>
 
-        <h2 class="section-title">Comandos Avançados</h2>
-
-        <div class="commands-grid">
-            <div class="command-card">
-                <h3><span class="command-tag">cache:</span> Versões em cache</h3>
-                <p>Acessa versões em cache de sites ou páginas removidas.</p>
-                <div class="command-examples">
-                    <div class="dork-code" onclick="copyToClipboard(this)">
-                        cache:exemplo.com.br
-                        <button class="copy-btn">Copiar</button>
-                        <span class="tooltip">Copiado!</span>
-                    </div>
+        <div class="command-card">
+            <h3><span class="command-tag">intitle:</span> Busca no título</h3>
+            <p>Encontra páginas com termos específicos no título.</p>
+            <div class="command-examples">
+                <div class="dork-code" onclick="copyToClipboard(this)">
+                    <span class="dork-command-text">intitle:"painel de administração"</span>
+                    <button class="copy-btn">Copiar</button>
+                    <span class="tooltip">Copiado!</span>
                 </div>
-            </div>
-
-            <div class="command-card">
-                <h3><span class="command-tag">related:</span> Sites relacionados</h3>
-                <p>Encontra sites relacionados a um domínio específico.</p>
-                <div class="command-examples">
-                    <div class="dork-code" onclick="copyToClipboard(this)">
-                        related:gov.br
-                        <button class="copy-btn">Copiar</button>
-                        <span class="tooltip">Copiado!</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="command-card">
-                <h3><span class="command-tag">:ftp</span> Servidores FTP</h3>
-                <p>Localiza servidores FTP com arquivos compartilhados.</p>
-                <div class="command-examples">
-                    <div class="dork-code" onclick="copyToClipboard(this)">
-                        inurl:ftp -inurl:(http|https)
-                        <button class="copy-btn">Copiar</button>
-                        <span class="tooltip">Copiado!</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="command-card">
-                <h3><span class="command-tag">filetype:log</span> Arquivos de log</h3>
-                <p>Busca arquivos de log que podem conter informações sensíveis.</p>
-                <div class="command-examples">
-                    <div class="dork-code" onclick="copyToClipboard(this)">
-                        filetype:log username password
-                        <button class="copy-btn">Copiar</button>
-                        <span class="tooltip">Copiado!</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="command-card">
-                <h3><span class="command-tag">imagesize:</span> Dimensões específicas</h3>
-                <p>Busca imagens com dimensões específicas.</p>
-                <div class="command-examples">
-                    <div class="dork-code" onclick="copyToClipboard(this)">
-                        imagesize:1920x1080 confidencial
-                        <button class="copy-btn">Copiar</button>
-                        <span class="tooltip">Copiado!</span>
-                    </div>
+                <div class="dork-code" onclick="copyToClipboard(this)">
+                    <span class="dork-command-text">intitle:"index of" admin</span>
+                    <button class="copy-btn">Copiar</button>
+                    <span class="tooltip">Copiado!</span>
                 </div>
             </div>
         </div>
 
-        <h2 class="section-title combination-title">Combinações Poderosas (Use com cautela)</h2>
-
-        <div class="commands-grid">
-            <div class="command-card">
-                <h3>Busca por documentos confidenciais</h3>
-                <div class="command-examples">
-                    <div class="dork-code" onclick="copyToClipboard(this)">
-                        site:gov.br filetype:pdf "confidencial"
-                        <button class="copy-btn">Copiar</button>
-                        <span class="tooltip">Copiado!</span>
-                    </div>
+        <div class="command-card">
+            <h3><span class="command-tag">inurl:</span> Busca na URL</h3>
+            <p>Encontra páginas com termos específicos na URL.</p>
+            <div class="command-examples">
+                <div class="dork-code" onclick="copyToClipboard(this)">
+                    <span class="dork-command-text">inurl:admin</span>
+                    <button class="copy-btn">Copiar</button>
+                    <span class="tooltip">Copiado!</span>
+                </div>
+                <div class="dork-code" onclick="copyToClipboard(this)">
+                    <span class="dork-command-text">inurl:login inurl:admin</span>
+                    <button class="copy-btn">Copiar</button>
+                    <span class="tooltip">Copiado!</span>
                 </div>
             </div>
+        </div>
 
-            <div class="command-card">
-                <h3>Busca por painéis administrativos</h3>
-                <div class="command-examples">
-                    <div class="dork-code" onclick="copyToClipboard(this)">
-                        intitle:"painel" inurl:admin
-                        <button class="copy-btn">Copiar</button>
-                        <span class="tooltip">Copiado!</span>
-                    </div>
+        <div class="command-card">
+            <h3><span class="command-tag">filetype:</span> Busca por tipo de arquivo</h3>
+            <p>Limita resultados a um tipo específico de arquivo.</p>
+            <div class="command-examples">
+                <div class="dork-code" onclick="copyToClipboard(this)">
+                    <span class="dork-command-text">filetype:pdf confidencial</span>
+                    <button class="copy-btn">Copiar</button>
+                    <span class="tooltip">Copiado!</span>
+                </div>
+                <div class="dork-code" onclick="copyToClipboard(this)">
+                    <span class="dork-command-text">filetype:xls senha</span>
+                    <button class="copy-btn">Copiar</button>
+                    <span class="tooltip">Copiado!</span>
                 </div>
             </div>
+        </div>
 
-            <div class="command-card">
-                <h3>Busca por senhas em planilhas</h3>
-                <div class="command-examples">
-                    <div class="dork-code" onclick="copyToClipboard(this)">
-                        filetype:xls OR filetype:xlsx intext:"senha" OR intext:"password"
-                        <button class="copy-btn">Copiar</button>
-                        <span class="tooltip">Copiado!</span>
-                    </div>
+        <div class="command-card">
+            <h3><span class="command-tag">intext:</span> Busca no conteúdo</h3>
+            <p>Encontra páginas com termos específicos no corpo do texto.</p>
+            <div class="command-examples">
+                <div class="dork-code" onclick="copyToClipboard(this)">
+                    <span class="dork-command-text">intext:"dados pessoais" formulário</span>
+                    <button class="copy-btn">Copiar</button>
+                    <span class="tooltip">Copiado!</span>
+                </div>
+                <div class="dork-code" onclick="copyToClipboard(this)">
+                    <span class="dork-command-text">intext:"username" "password"</span>
+                    <button class="copy-btn">Copiar</button>
+                    <span class="tooltip">Copiado!</span>
                 </div>
             </div>
+        </div>
 
-            <div class="command-card">
-                <h3>Busca por câmeras expostas (CUIDADO)</h3>
-                <div class="command-examples">
-                    <div class="dork-code" onclick="copyToClipboard(this)">
-                        intitle:"webcamXP 5"
-                        <button class="copy-btn">Copiar</button>
-                        <span class="tooltip">Copiado!</span>
-                    </div>
+        <div class="command-card">
+            <h3><span class="command-tag">" "</span> Busca por frase exata</h3>
+            <p>Encontra resultados que contenham a frase exata entre aspas.</p>
+            <div class="command-examples">
+                <div class="dork-code" onclick="copyToClipboard(this)">
+                    <span class="dork-command-text">"login: admin password:"</span>
+                    <button class="copy-btn">Copiar</button>
+                    <span class="tooltip">Copiado!</span>
                 </div>
-            </div>
-
-            <div class="command-card">
-                <h3>Busca por diretórios expostos</h3>
-                <div class="command-examples">
-                    <div class="dork-code" onclick="copyToClipboard(this)">
-                        intitle:"Index of /" +password
-                        <button class="copy-btn">Copiar</button>
-                        <span class="tooltip">Copiado!</span>
-                    </div>
+                <div class="dork-code" onclick="copyToClipboard(this)">
+                    <span class="dork-command-text">"informações confidenciais não compartilhar"</span>
+                    <button class="copy-btn">Copiar</button>
+                    <span class="tooltip">Copiado!</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer>
-        <p>Material educativo desenvolvido para o Dia de Paulo Freire</p>
-        <p>Use este conhecimento com responsabilidade e ética</p>
-    </footer>
+    <h2 class="section-title">Comandos Avançados</h2>
 
-    <script>
-        function copyToClipboard(element) {
-            const text = element.innerText.replace('Copiar', '').trim();
-            navigator.clipboard.writeText(text)
-                .then(() => {
-                    element.classList.add('copy-success');
-                    setTimeout(() => {
-                        element.classList.remove('copy-success');
-                    }, 2000);
-                })
-                .catch(err => {
-                    console.error('Erro ao copiar: ', err);
-                });
-        }
-    </script>
+    <div class="commands-grid">
+        <div class="command-card">
+            <h3><span class="command-tag">cache:</span> Versões em cache</h3>
+            <p>Acessa versões em cache de sites ou páginas removidas.</p>
+            <div class="command-examples">
+                <div class="dork-code" onclick="copyToClipboard(this)">
+                    <span class="dork-command-text">cache:exemplo.com.br</span>
+                    <button class="copy-btn">Copiar</button>
+                    <span class="tooltip">Copiado!</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="command-card">
+            <h3><span class="command-tag">related:</span> Sites relacionados</h3>
+            <p>Encontra sites relacionados a um domínio específico.</p>
+            <div class="command-examples">
+                <div class="dork-code" onclick="copyToClipboard(this)">
+                    <span class="dork-command-text">related:gov.br</span>
+                    <button class="copy-btn">Copiar</button>
+                    <span class="tooltip">Copiado!</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="command-card">
+            <h3><span class="command-tag">:ftp</span> Servidores FTP</h3>
+            <p>Localiza servidores FTP com arquivos compartilhados.</p>
+            <div class="command-examples">
+                <div class="dork-code" onclick="copyToClipboard(this)">
+                    <span class="dork-command-text">inurl:ftp -inurl:(http|https)</span>
+                    <button class="copy-btn">Copiar</button>
+                    <span class="tooltip">Copiado!</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="command-card">
+            <h3><span class="command-tag">filetype:log</span> Arquivos de log</h3>
+            <p>Busca arquivos de log que podem conter informações sensíveis.</p>
+            <div class="command-examples">
+                <div class="dork-code" onclick="copyToClipboard(this)">
+                    <span class="dork-command-text">filetype:log username password</span>
+                    <button class="copy-btn">Copiar</button>
+                    <span class="tooltip">Copiado!</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="command-card">
+            <h3><span class="command-tag">imagesize:</span> Dimensões específicas</h3>
+            <p>Busca imagens com dimensões específicas.</p>
+            <div class="command-examples">
+                <div class="dork-code" onclick="copyToClipboard(this)">
+                    <span class="dork-command-text">imagesize:1920x1080 confidencial</span>
+                    <button class="copy-btn">Copiar</button>
+                    <span class="tooltip">Copiado!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="section-title combination-title">Combinações Poderosas (Use com cautela)</h2>
+
+    <div class="commands-grid">
+        <div class="command-card">
+            <h3>Busca por documentos confidenciais</h3>
+            <div class="command-examples">
+                <div class="dork-code" onclick="copyToClipboard(this)">
+                    <span class="dork-command-text">site:gov.br filetype:pdf "confidencial"</span>
+                    <button class="copy-btn">Copiar</button>
+                    <span class="tooltip">Copiado!</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="command-card">
+            <h3>Busca por painéis administrativos</h3>
+            <div class="command-examples">
+                <div class="dork-code" onclick="copyToClipboard(this)">
+                    <span class="dork-command-text">intitle:"painel" inurl:admin</span>
+                    <button class="copy-btn">Copiar</button>
+                    <span class="tooltip">Copiado!</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="command-card">
+            <h3>Busca por senhas em planilhas</h3>
+            <div class="command-examples">
+                <div class="dork-code" onclick="copyToClipboard(this)">
+                    <span class="dork-command-text">filetype:xls OR filetype:xlsx intext:"senha" OR intext:"password"</span>
+                    <button class="copy-btn">Copiar</button>
+                    <span class="tooltip">Copiado!</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="command-card">
+            <h3>Busca por câmeras expostas (CUIDADO)</h3>
+            <div class="command-examples">
+                <div class="dork-code" onclick="copyToClipboard(this)">
+                    <span class="dork-command-text">intitle:"webcamXP 5"</span>
+                    <button class="copy-btn">Copiar</button>
+                    <span class="tooltip">Copiado!</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="command-card">
+            <h3>Busca por diretórios expostos</h3>
+            <div class="command-examples">
+                <div class="dork-code" onclick="copyToClipboard(this)">
+                    <span class="dork-command-text">intitle:"Index of /" +password</span>
+                    <button class="copy-btn">Copiar</button>
+                    <span class="tooltip">Copiado!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>Material educativo desenvolvido para a semana Paulo Freire.</p>
+    <p>Use este conhecimento com responsabilidade e ética.</p>
+</footer>
+
+<script>
+    function copyToClipboard(element) {
+        // Encontra o elemento de texto do comando dentro do dork-code
+        const commandTextElement = element.querySelector('.dork-command-text');
+        const text = commandTextElement.innerText.trim();
+
+        navigator.clipboard.writeText(text)
+            .then(() => {
+                element.classList.add('copy-success');
+                setTimeout(() => {
+                    element.classList.remove('copy-success');
+                }, 2000);
+            })
+            .catch(err => {
+                console.error('Erro ao copiar: ', err);
+            });
+    }
+</script>
 </body>
 </html>
